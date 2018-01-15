@@ -1,0 +1,29 @@
+button:focus, input:focus {
+  outline: none;
+}
+
+.category-btn {
+  margin: 7px;
+  margin-top: 8px;
+  border-radius: 30px;
+  font-family: Helvetica;
+  color: white;
+  background-color: #414244;
+  border: none;
+  width:31%;
+  height:50px;
+}
+
+.category-btn:hover{
+  background: linear-gradient(to right, #7f00ff, #e100ff);
+}
+
+.category-container{
+  padding: 20px;
+  width: 700px;
+  background-color: black;
+}
+
+.dropdown-menu {
+  padding: 0px;
+}
