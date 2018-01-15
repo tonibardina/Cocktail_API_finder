@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Navbar, NavDropdown, Nav } from 'react-bootstrap'
-import { categoryList } from '../API/ApiCalls'
+import { categoryList, ingredients } from '../API/ApiCalls'
 
 import './Navbar.style.css'
 
@@ -9,15 +9,22 @@ class NavbarComponent extends Component {
     super(props)
     this.state = {
       categories: [],
-      ingredients: ''
+      ingredients: []
     }
   }
 
   componentWillMount () {
-    categoryList.then(categories => {
-      categories.data.drinks.map(categories => {
+    categoryList.then(data => {
+      data.data.drinks.map(categories => {
         this.setState({
           categories: [...this.state.categories, categories.strCategory]
+        })
+      })
+    })
+    ingredients.then(data => {
+      data.data.drinks.map(ingredients => {
+        this.setState({
+          ingredients: [...this.state.ingredients, ingredients.strIngredient1]
         })
       })
     })
@@ -34,8 +41,17 @@ class NavbarComponent extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavDropdown eventKey={3} title='Ingredientes' id='basic-nav-dropdown'>
-              
+            <NavDropdown eventKey={3} title='Ingredients' id='basic-nav-dropdown'>
+              <div className={'ingredients-container'} >
+                {
+                  this.state.ingredients.map(category => {
+                    let itemList = category
+                    return (
+                      <button className={'category-btn'} key={Math.random() * 1000}>{ itemList }</button>
+                    )
+                  })
+                }
+              </div>
             </NavDropdown>
             <NavDropdown eventKey={3} title='Category' id='basic-nav-dropdown'>
               <div className={'category-container'} >

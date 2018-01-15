@@ -2,6 +2,13 @@ button:focus, input:focus {
   outline: none;
 }
 
+.navbar {
+  position: fixed;
+  margin: 0px;
+  width: 100vw;
+  border-radius: 0px;
+}
+
 .category-btn {
   margin: 7px;
   margin-top: 8px;
@@ -21,6 +28,14 @@ button:focus, input:focus {
 .category-container{
   padding: 20px;
   width: 700px;
+  background-color: black;
+}
+
+.ingredients-container{
+  padding: 20px;
+  width: 700px;
+  height: 300px;
+  overflow: scroll;
   background-color: black;
 }
 
